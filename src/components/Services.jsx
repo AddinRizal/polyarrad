@@ -39,6 +39,14 @@ const Services = () => {
     });
   };
 
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+      setIsMobileMenuOpen(false);
+    }
+  };
+
   return (
     <section id="layanan" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
@@ -152,7 +160,7 @@ const Services = () => {
               untuk kebutuhan industri Anda.
             </p>
             <Button
-              onClick={handleContactClick}
+              onClick={() => scrollToSection('kontak')}
               size="lg"
               className="bg-white text-blue-600 hover:bg-gray-100 font-semibold"
             >
