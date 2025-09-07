@@ -10,27 +10,30 @@ const Contact = () => {
     {
       icon: MapPin,
       title: "Alamat",
-      details: ["Sidoarjo, Jawa Timur", "Indonesia"],
-      color: "bg-blue-500"
+      details: [
+        "PT. Poly Arrad Pusaka",
+        "Jl. Jemur Andayani No. 50, Blok D 68–69 Surabaya 60237, East Java, Indonesia",
+      ],
+      color: "bg-blue-500",
     },
     {
       icon: Phone,
       title: "Telepon",
-      details: ["+62 (031) XXX-XXXX", "+62 8XX-XXXX-XXXX"],
-      color: "bg-green-500"
+      details: ["Phone: +62-31-8432268", "Fax: +62-31-8435669"],
+      color: "bg-green-500",
     },
     {
       icon: Mail,
       title: "Email",
-      details: ["info@polyarradpusaka.com", "sales@polyarradpusaka.com"],
-      color: "bg-purple-500"
+      details: ["pap_pt@arradchemicals.com", "ptpap@sby.dnet.net.id"],
+      color: "bg-purple-500",
     },
     {
       icon: Clock,
       title: "Jam Operasional",
-      details: ["Senin - Jumat: 08:00 - 17:00", "Sabtu: 08:00 - 12:00"],
-      color: "bg-orange-500"
-    }
+      details: ["Senin - Jumat: 08:00 - 16:00"],
+      color: "bg-orange-500",
+    },
   ];
 
   const handleSubmit = (e) => {

@@ -50,28 +50,34 @@ const Footer = () => {
                 <span className="text-white font-bold text-xl">A</span>
               </div>
               <div>
-                <span className="text-xl font-bold text-white">Arrad Chemicals</span>
+                <span className="text-xl font-bold text-white">
+                  Arrad Chemicals
+                </span>
                 <p className="text-xs text-gray-400">PT. Poly Arrad Pusaka</p>
               </div>
             </div>
-            
+
             <p className="text-gray-300 leading-relaxed">
-              Perusahaan kimia terkemuka yang menyediakan solusi terpadu untuk 
+              Perusahaan kimia terkemuka yang menyediakan solusi terpadu untuk
               sistem air dan pengolahan limbah sejak 1998.
             </p>
 
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
                 <MapPin className="w-4 h-4 text-cyan-400 flex-shrink-0" />
-                <span className="text-gray-300 text-sm">Sidoarjo, Jawa Timur, Indonesia</span>
+                <span className="text-gray-300 text-sm">
+                  Surabaya, Jawa Timur, Indonesia
+                </span>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="w-4 h-4 text-cyan-400 flex-shrink-0" />
-                <span className="text-gray-300 text-sm">+62 (031) XXX-XXXX</span>
+                <span className="text-gray-300 text-sm">+62-31-8432268</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="w-4 h-4 text-cyan-400 flex-shrink-0" />
-                <span className="text-gray-300 text-sm">info@polyarradpusaka.com</span>
+                <span className="text-gray-300 text-sm">
+                  pap_pt@arradchemicals.com
+                </span>
               </div>
             </div>
           </motion.div>
@@ -83,7 +89,9 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
           >
-            <span className="text-lg font-semibold text-white mb-6 block">Navigasi</span>
+            <span className="text-lg font-semibold text-white mb-6 block">
+              Navigasi
+            </span>
             <ul className="space-y-3">
               {quickLinks.map((link, index) => (
                 <li key={index}>
@@ -105,7 +113,9 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            <span className="text-lg font-semibold text-white mb-6 block">Produk Kami</span>
+            <span className="text-lg font-semibold text-white mb-6 block">
+              Produk Kami
+            </span>
             <ul className="space-y-3">
               {products.map((product, index) => (
                 <li key={index}>
@@ -122,8 +132,10 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
           >
-            <span className="text-lg font-semibold text-white mb-6 block">Ikuti Kami</span>
-            
+            <span className="text-lg font-semibold text-white mb-6 block">
+              Ikuti Kami
+            </span>
+
             <p className="text-gray-300 text-sm mb-6">
               Dapatkan update terbaru tentang produk dan layanan kami.
             </p>
@@ -141,9 +153,12 @@ const Footer = () => {
             </div>
 
             <div className="bg-gray-800 rounded-lg p-4">
-              <span className="text-sm font-medium text-white block mb-2">Jam Operasional</span>
-              <p className="text-gray-300 text-xs">Senin - Jumat: 08:00 - 17:00</p>
-              <p className="text-gray-300 text-xs">Sabtu: 08:00 - 12:00</p>
+              <span className="text-sm font-medium text-white block mb-2">
+                Jam Operasional
+              </span>
+              <p className="text-gray-300 text-xs">
+                Senin - Jumat: 08:00 - 16:00
+              </p>
             </div>
           </motion.div>
         </div>
@@ -157,7 +172,7 @@ const Footer = () => {
         >
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-gray-400 text-sm">
-              © 2024 PT. Poly Arrad Pusaka. Semua hak dilindungi.
+              © 2025 PT. Poly Arrad Pusaka. Semua hak dilindungi.
             </p>
             <div className="flex space-x-6">
               <span className="text-gray-400 text-sm hover:text-cyan-400 transition-colors cursor-pointer">
