@@ -88,7 +88,7 @@ const Header = () => {
               Klien
             </button>
             <Button
-              onClick={handleContactClick}
+              onClick={() => scrollToSection('kontak')}
               className="gradient-bg text-white hover:opacity-90"
             >
               Hubungi Kami

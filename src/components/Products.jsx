@@ -68,8 +68,9 @@ const Products = () => {
             Produk Arrad Chemicals
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Rangkaian lengkap bahan kimia berkualitas tinggi untuk berbagai kebutuhan 
-            industri dengan teknologi terdepan dan standar internasional.
+            Rangkaian lengkap bahan kimia berkualitas tinggi untuk berbagai
+            kebutuhan industri dengan teknologi terdepan dan standar
+            internasional.
           </p>
         </motion.div>
 
@@ -84,11 +85,17 @@ const Products = () => {
               transition={{ delay: index * 0.1 }}
               className="bg-white rounded-2xl p-8 shadow-xl card-hover border border-gray-100"
             >
-              <div className={`w-16 h-16 ${category.color} rounded-2xl flex items-center justify-center mb-6`}>
+              <div
+                className={`w-16 h-16 ${category.color} rounded-2xl flex items-center justify-center mb-6`}
+              >
                 <category.icon className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">{category.title}</h3>
-              <p className="text-gray-600 leading-relaxed">{category.description}</p>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">
+                {category.title}
+              </h3>
+              <p className="text-gray-600 leading-relaxed">
+                {category.description}
+              </p>
             </motion.div>
           ))}
         </div>
@@ -105,7 +112,8 @@ const Products = () => {
               Ruang Lingkup Aplikasi
             </h3>
             <p className="text-gray-600 text-lg">
-              Produk kami telah dipercaya oleh berbagai sektor industri di Indonesia
+              Produk kami telah dipercaya oleh berbagai sektor industri di
+              Indonesia
             </p>
           </div>
 
@@ -120,7 +128,9 @@ const Products = () => {
                 className="bg-white rounded-xl p-6 text-center shadow-lg card-hover"
               >
                 <div className="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center mx-auto mb-4">
-                  <span className="text-white font-bold text-lg">{index + 1}</span>
+                  <span className="text-white font-bold text-lg">
+                    {index + 1}
+                  </span>
                 </div>
                 <h4 className="font-semibold text-gray-900">{app}</h4>
               </motion.div>
@@ -140,12 +150,14 @@ const Products = () => {
               Butuh Solusi Kimia Khusus?
             </h3>
             <p className="text-gray-600 mb-6">
-              Tim ahli kami siap membantu Anda menemukan solusi terbaik untuk kebutuhan industri Anda
+              Tim ahli kami siap membantu Anda menemukan solusi terbaik untuk
+              kebutuhan industri Anda
             </p>
-            <img  
-              className="w-full h-48 object-cover rounded-xl mb-6"
+            <img
+              className="w-full h-50 object-cover rounded-xl mb-6"
               alt="Laboratorium penelitian dan pengembangan produk kimia"
-             src="https://images.unsplash.com/photo-1618053238059-cc7761222f2a" />
+              src="https://images.unsplash.com/photo-1582719471863-f4c7006280cd?q=80&w=1993&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            />
           </div>
         </motion.div>
       </div>
