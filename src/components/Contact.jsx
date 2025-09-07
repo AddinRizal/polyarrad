@@ -1,9 +1,8 @@
-
-import React from 'react';
-import { motion } from 'framer-motion';
-import { MapPin, Phone, Mail, Clock, Send, MessageCircle } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { toast } from '@/components/ui/use-toast';
+import React from "react";
+import { motion } from "framer-motion";
+import { MapPin, Phone, Mail, Clock, Send, MessageCircle } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { toast } from "@/components/ui/use-toast";
 
 const Contact = () => {
   const contactInfo = [
@@ -36,17 +35,63 @@ const Contact = () => {
     },
   ];
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    toast({
-      title: "🚧 Fitur ini belum diimplementasikan—tapi jangan khawatir! Anda bisa memintanya di prompt berikutnya! 🚀"
-    });
+  const handleContactClick = (type) => {
+    try {
+      if (type === "call") {
+        // Telepon kantor (bisa override via .env)
+        const phone = (
+          import.meta?.env?.VITE_PHONE_NUMBER || "+62318432268"
+        ).replace(/[^+\d]/g, "");
+        window.location.href = `tel:${phone}`;
+        return;
+      }
+      if (type === "whatsapp") {
+        // Nomor WA internasional tanpa "+" (contoh: 6281234567890)
+        const wa = (
+          import.meta?.env?.VITE_WHATSAPP_NUMBER || "6281234567890"
+        ).replace(/\D/g, "");
+        const msg = encodeURIComponent(
+          "Halo, saya tertarik dengan produk/layanan Anda."
+        );
+        window.open(
+          `https://wa.me/${wa}?text=${msg}`,
+          "_blank",
+          "noopener,noreferrer"
+        );
+        return;
+      }
+    } catch (err) {
+      console.error(err);
+    }
   };
 
-  const handleContactClick = () => {
-    toast({
-      title: "🚧 Fitur ini belum diimplementasikan—tapi jangan khawatir! Anda bisa memintanya di prompt berikutnya! 🚀"
-    });
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const name = formData.get("name") || "";
+    const company = formData.get("company") || "";
+    const email = formData.get("email") || "";
+    const phone = formData.get("phone") || "";
+    const industry = formData.get("industry") || "";
+    const message = formData.get("message") || "";
+
+    const to =
+      import.meta?.env?.VITE_CONTACT_EMAIL || "pap_pt@arradchemicals.com";
+    const subject = `Permintaan dari ${name}${company ? " - " + company : ""}`;
+    const body = [
+      `Nama: ${name}`,
+      `Perusahaan: ${company}`,
+      `Email: ${email}`,
+      `Telepon: ${phone}`,
+      `Jenis Industri: ${industry}`,
+      "",
+      "Pesan:",
+      message,
+    ].join("\n");
+
+    window.location.href = `mailto:${to}?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(body)}`;
   };
 
   return (
@@ -63,8 +108,8 @@ const Contact = () => {
             Hubungi Kami
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Siap membantu Anda menemukan solusi kimia terbaik untuk kebutuhan industri. 
-            Tim ahli kami siap memberikan konsultasi profesional.
+            Siap membantu Anda menemukan solusi kimia terbaik untuk kebutuhan
+            industri. Tim ahli kami siap memberikan konsultasi profesional.
           </p>
         </motion.div>
 
@@ -81,7 +126,7 @@ const Contact = () => {
                 Informasi Kontak
               </h3>
               <p className="text-gray-600 text-lg mb-8">
-                Jangan ragu untuk menghubungi kami. Tim profesional kami siap 
+                Jangan ragu untuk menghubungi kami. Tim profesional kami siap
                 memberikan solusi terbaik untuk kebutuhan sistem air Anda.
               </p>
             </div>
@@ -96,13 +141,19 @@ const Contact = () => {
                   transition={{ delay: index * 0.1 }}
                   className="flex items-start space-x-4"
                 >
-                  <div className={`w-12 h-12 ${info.color} rounded-xl flex items-center justify-center flex-shrink-0`}>
+                  <div
+                    className={`w-12 h-12 ${info.color} rounded-xl flex items-center justify-center flex-shrink-0`}
+                  >
                     <info.icon className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h4 className="text-lg font-semibold text-gray-900 mb-2">{info.title}</h4>
+                    <h4 className="text-lg font-semibold text-gray-900 mb-2">
+                      {info.title}
+                    </h4>
                     {info.details.map((detail, idx) => (
-                      <p key={idx} className="text-gray-600">{detail}</p>
+                      <p key={idx} className="text-gray-600">
+                        {detail}
+                      </p>
                     ))}
                   </div>
                 </motion.div>
@@ -117,7 +168,7 @@ const Contact = () => {
               className="flex flex-col sm:flex-row gap-4 pt-8"
             >
               <Button
-                onClick={handleContactClick}
+                onClick={() => handleContactClick("call")}
                 size="lg"
                 className="gradient-bg text-white hover:opacity-90"
               >
@@ -125,7 +176,7 @@ const Contact = () => {
                 Hubungi Sekarang
               </Button>
               <Button
-                onClick={handleContactClick}
+                onClick={handleContactClick("whatsapp")}
                 size="lg"
                 variant="outline"
                 className="border-blue-600 text-blue-600 hover:bg-blue-50"
@@ -146,7 +197,7 @@ const Contact = () => {
             <h3 className="text-2xl font-bold text-gray-900 mb-6">
               Kirim Pesan
             </h3>
-            
+
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
@@ -251,11 +302,19 @@ const Contact = () => {
             <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
               Lokasi Kami
             </h3>
-            <div className="bg-gray-200 rounded-xl h-64 flex items-center justify-center">
-              <div className="text-center text-gray-600">
-                <MapPin className="w-12 h-12 mx-auto mb-4" />
-                <p className="text-lg font-medium">Peta Lokasi</p>
-                <p className="text-sm">Sidoarjo, Jawa Timur, Indonesia</p>
+            <div className="bg-gray-200 rounded-xl h-96 flex items-center justify-center">
+              <div className="w-full rounded-xl overflow-hidden h-full">
+                <iframe
+                  title="Lokasi PT. Poly Arrad Pusaka"
+                  src={`https://www.google.com/maps?q=${encodeURIComponent(
+                    import.meta?.env?.VITE_MAP_QUERY ||
+                      "Jl. Jemur Andayani No. 50, Blok D 68–69 Surabaya 60237, East Java, Indonesia"
+                  )}&output=embed`}
+                  className="w-full h-full border-0"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  allowFullScreen
+                ></iframe>
               </div>
             </div>
           </div>
