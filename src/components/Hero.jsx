@@ -13,11 +13,11 @@ const Hero = () => {
     }
   };
 
-  const handleContactClick = () => {
-    toast({
-      title: "🚧 Fitur ini belum diimplementasikan—tapi jangan khawatir! Anda bisa memintanya di prompt berikutnya! 🚀"
-    });
-  };
+  // const handleContactClick = () => {
+  //   toast({
+  //     title: "🚧 Fitur ini belum diimplementasikan—tapi jangan khawatir! Anda bisa memintanya di prompt berikutnya! 🚀"
+  //   });
+  // };
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
