@@ -176,7 +176,7 @@ const Contact = () => {
                 Hubungi Sekarang
               </Button>
               <Button
-                onClick={handleContactClick("whatsapp")}
+                onClick={() => handleContactClick("whatsapp")}
                 size="lg"
                 variant="outline"
                 className="border-blue-600 text-blue-600 hover:bg-blue-50"
